@@ -2,6 +2,8 @@ package com.fobias.phobia;
 
 import java.util.List;
 
+import com.fobias.world.DarkForestGame;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffect;
@@ -10,18 +12,15 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 /**
- * Efectos que provoca cada fobia sobre el jugador.
+ * Efectos pasivos de cada fobia sobre el jugador.
  * Se llama una vez por segundo desde PhobiaEvents.
  */
 public final class PhobiaEffects {
     private static final double SPIDER_RADIUS = 8.0D;
-    private static final int HEIGHT_LIMIT = 8;
-    private static final int HEIGHT_SEVERE = 16;
-    private static final int HEIGHT_SCAN = 32;
+    private static final int DARK_LIGHT_LEVEL = 3;
 
     private PhobiaEffects() {
     }
@@ -29,8 +28,8 @@ public final class PhobiaEffects {
     public static void apply(Player player, Phobia phobia) {
         switch (phobia) {
             case ARACHNOPHOBIA -> arachnophobia(player);
-            case ACROPHOBIA -> acrophobia(player);
             case CLAUSTROPHOBIA -> claustrophobia(player);
+            case NYCTOPHOBIA -> nyctophobia(player);
         }
     }
 
@@ -63,40 +62,6 @@ public final class PhobiaEffects {
             give(player, MobEffects.WEAKNESS, 60, 0);
         }
         if (nearest <= 3.0D) {
-            give(player, MobEffects.CONFUSION, 120, 0);
-        }
-    }
-
-    // ---------------------------------------------------------------
-    // Acrofobia: mucha altura entre tus pies y el suelo
-    // ---------------------------------------------------------------
-    private static void acrophobia(Player player) {
-        if (player.isFallFlying() || player.isInWater() || player.getAbilities().flying) {
-            return;
-        }
-
-        Level level = player.level();
-        BlockPos.MutableBlockPos pos = player.blockPosition().mutable();
-        int drop = 0;
-        for (int i = 0; i < HEIGHT_SCAN; i++) {
-            pos.move(Direction.DOWN);
-            BlockState state = level.getBlockState(pos);
-            if (state.blocksMotion() || !state.getFluidState().isEmpty()) {
-                break;
-            }
-            drop++;
-        }
-
-        if (drop < HEIGHT_LIMIT) {
-            return;
-        }
-
-        if (!player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
-            player.displayClientMessage(Phobia.ACROPHOBIA.getMessage(), true);
-        }
-
-        give(player, MobEffects.MOVEMENT_SLOWDOWN, 60, 0);
-        if (drop >= HEIGHT_SEVERE) {
             give(player, MobEffects.CONFUSION, 120, 0);
         }
     }
@@ -138,5 +103,25 @@ public final class PhobiaEffects {
             }
         }
         return false;
+    }
+
+    // ---------------------------------------------------------------
+    // Nictofobia: lugares con muy poca luz (fuera del bosque oscuro)
+    // ---------------------------------------------------------------
+    private static void nyctophobia(Player player) {
+        Level level = player.level();
+        if (level.dimension().equals(DarkForestGame.DIMENSION)) {
+            return;
+        }
+        if (level.getMaxLocalRawBrightness(player.blockPosition()) > DARK_LIGHT_LEVEL) {
+            return;
+        }
+
+        if (!player.hasEffect(MobEffects.WEAKNESS)) {
+            player.displayClientMessage(Phobia.NYCTOPHOBIA.getMessage(), true);
+        }
+
+        give(player, MobEffects.WEAKNESS, 60, 0);
+        give(player, MobEffects.MOVEMENT_SLOWDOWN, 60, 0);
     }
 }

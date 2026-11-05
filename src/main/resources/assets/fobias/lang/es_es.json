@@ -1,11 +1,29 @@
 {
   "phobia.fobias.aracnofobia": "Aracnofobia",
-  "phobia.fobias.acrofobia": "Acrofobia",
   "phobia.fobias.claustrofobia": "Claustrofobia",
+  "phobia.fobias.nictofobia": "Nictofobia",
 
   "message.fobias.aracnofobia": "¡Arañas cerca! Te tiemblan las piernas...",
-  "message.fobias.acrofobia": "Estás demasiado alto... no mires abajo.",
   "message.fobias.claustrofobia": "Las paredes parecen cerrarse a tu alrededor...",
+  "message.fobias.nictofobia": "La oscuridad te rodea... sientes que algo te observa.",
+
+  "item.fobias.dark_orb": "Orbe de la Oscuridad",
+  "item.fobias.flashlight": "Linterna",
+  "entity.fobias.stalker": "Acechador",
+
+  "message.fobias.world_missing": "El bosque oscuro no está disponible en este mundo.",
+  "message.fobias.already_playing": "Ya estás dentro de una pesadilla.",
+  "message.fobias.not_playing": "No estás dentro de ningún mundo de fobias.",
+  "message.fobias.dark_start": "Busca la luz blanca de la salida. Algo te observa desde las sombras...",
+  "message.fobias.dark_hint": "Mantén la linterna en la mano: apúntala hacia él para frenarlo.",
+  "message.fobias.stalker_hunting": "Ha empezado a moverse...",
+  "message.fobias.aborted": "Has despertado de la pesadilla.",
+  "message.fobias.overcome": "Has superado tu %s.",
+
+  "title.fobias.escaped": "Escapaste",
+  "subtitle.fobias.escaped": "La oscuridad ya no te asusta tanto",
+  "title.fobias.caught": "Te atrapó",
+  "subtitle.fobias.caught": "Despiertas de golpe...",
 
   "commands.fobias.added": "Ahora sufres de %s.",
   "commands.fobias.removed": "Superaste tu %s.",
@@ -13,7 +31,8 @@
   "commands.fobias.not_have": "No tienes %s.",
   "commands.fobias.unknown": "Fobia desconocida: %s",
   "commands.fobias.cleared": "Ya no tienes ninguna fobia.",
+  "commands.fobias.orb_given": "Recibiste el Orbe de la Oscuridad.",
   "commands.fobias.list.header": "Tus fobias: %s",
   "commands.fobias.list.empty": "No tienes ninguna fobia. Usa /fobia add <fobia>.",
-  "commands.fobias.available": "Fobias disponibles: aracnofobia, acrofobia, claustrofobia"
+  "commands.fobias.available": "Fobias disponibles: aracnofobia, claustrofobia, nictofobia"
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.fobias.phobia.Phobia;
 import com.fobias.phobia.PhobiaData;
+import com.fobias.registry.ModItems;
+import com.fobias.world.DarkForestGame;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -16,10 +18,10 @@ import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 
 /**
- * /fobia list | add <fobia> | remove <fobia> | clear
- * Sirve para probar el mod. Mas adelante se pueden ganar fobias de forma natural.
+ * /fobia list | add <fobia> | remove <fobia> | clear | orbe | salir
  */
 public final class PhobiaCommand {
     private static final SuggestionProvider<CommandSourceStack> SUGGEST_PHOBIAS =
@@ -44,7 +46,11 @@ public final class PhobiaCommand {
                                 .executes(ctx -> remove(ctx.getSource(),
                                         StringArgumentType.getString(ctx, "fobia")))))
                 .then(Commands.literal("clear")
-                        .executes(ctx -> clear(ctx.getSource()))));
+                        .executes(ctx -> clear(ctx.getSource())))
+                .then(Commands.literal("orbe")
+                        .executes(ctx -> giveOrb(ctx.getSource())))
+                .then(Commands.literal("salir")
+                        .executes(ctx -> leave(ctx.getSource()))));
     }
 
     private static int list(CommandSourceStack source) throws CommandSyntaxException {
@@ -101,6 +107,28 @@ public final class PhobiaCommand {
         ServerPlayer player = source.getPlayerOrException();
         PhobiaData.clear(player);
         source.sendSuccess(() -> Component.translatable("commands.fobias.cleared"), false);
+        return 1;
+    }
+
+    /** Entrega el orbe de la oscuridad (para probar el mundo). */
+    private static int giveOrb(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        ItemStack orb = new ItemStack(ModItems.DARK_ORB.get());
+        if (!player.getInventory().add(orb)) {
+            player.drop(orb, false);
+        }
+        source.sendSuccess(() -> Component.translatable("commands.fobias.orb_given"), false);
+        return 1;
+    }
+
+    /** Sale del bosque oscuro si algo sale mal (devuelve tu inventario). */
+    private static int leave(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        if (!DarkForestGame.isPlaying(player)) {
+            source.sendFailure(Component.translatable("message.fobias.not_playing"));
+            return 0;
+        }
+        DarkForestGame.end(player, DarkForestGame.Outcome.ABORT);
         return 1;
     }
 

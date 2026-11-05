@@ -1,11 +1,29 @@
 {
   "phobia.fobias.aracnofobia": "Arachnophobia",
-  "phobia.fobias.acrofobia": "Acrophobia",
   "phobia.fobias.claustrofobia": "Claustrophobia",
+  "phobia.fobias.nictofobia": "Nyctophobia",
 
   "message.fobias.aracnofobia": "Spiders nearby! Your legs are shaking...",
-  "message.fobias.acrofobia": "You are too high up... don't look down.",
   "message.fobias.claustrofobia": "The walls seem to be closing in on you...",
+  "message.fobias.nictofobia": "Darkness surrounds you... you feel something watching.",
+
+  "item.fobias.dark_orb": "Orb of Darkness",
+  "item.fobias.flashlight": "Flashlight",
+  "entity.fobias.stalker": "Stalker",
+
+  "message.fobias.world_missing": "The dark forest is not available in this world.",
+  "message.fobias.already_playing": "You are already inside a nightmare.",
+  "message.fobias.not_playing": "You are not inside any phobia world.",
+  "message.fobias.dark_start": "Find the white light of the exit. Something watches from the shadows...",
+  "message.fobias.dark_hint": "Keep the flashlight in your hand: aim it at him to slow him down.",
+  "message.fobias.stalker_hunting": "It has started to move...",
+  "message.fobias.aborted": "You woke up from the nightmare.",
+  "message.fobias.overcome": "You overcame your %s.",
+
+  "title.fobias.escaped": "You escaped",
+  "subtitle.fobias.escaped": "The dark doesn't scare you as much",
+  "title.fobias.caught": "It caught you",
+  "subtitle.fobias.caught": "You wake up with a jolt...",
 
   "commands.fobias.added": "You now suffer from %s.",
   "commands.fobias.removed": "You overcame your %s.",
@@ -13,7 +31,8 @@
   "commands.fobias.not_have": "You don't have %s.",
   "commands.fobias.unknown": "Unknown phobia: %s",
   "commands.fobias.cleared": "You no longer have any phobia.",
+  "commands.fobias.orb_given": "You received the Orb of Darkness.",
   "commands.fobias.list.header": "Your phobias: %s",
   "commands.fobias.list.empty": "You have no phobias. Use /fobia add <phobia>.",
-  "commands.fobias.available": "Available phobias: aracnofobia, acrofobia, claustrofobia"
+  "commands.fobias.available": "Available phobias: aracnofobia, claustrofobia, nictofobia"
 }

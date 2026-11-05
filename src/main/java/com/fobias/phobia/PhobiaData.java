@@ -19,12 +19,17 @@ public final class PhobiaData {
     private PhobiaData() {
     }
 
-    private static CompoundTag storage(Player player) {
+    /** Datos persistentes del jugador que sobreviven a la muerte. */
+    public static CompoundTag persisted(Player player) {
         CompoundTag root = player.getPersistentData();
         if (!root.contains(PERSISTED, Tag.TAG_COMPOUND)) {
             root.put(PERSISTED, new CompoundTag());
         }
-        CompoundTag persisted = root.getCompound(PERSISTED);
+        return root.getCompound(PERSISTED);
+    }
+
+    private static CompoundTag storage(Player player) {
+        CompoundTag persisted = persisted(player);
         if (!persisted.contains(KEY, Tag.TAG_COMPOUND)) {
             persisted.put(KEY, new CompoundTag());
         }

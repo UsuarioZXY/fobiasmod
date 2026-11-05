@@ -10,8 +10,8 @@ import net.minecraft.network.chat.Component;
  */
 public enum Phobia {
     ARACHNOPHOBIA("aracnofobia"),
-    ACROPHOBIA("acrofobia"),
-    CLAUSTROPHOBIA("claustrofobia");
+    CLAUSTROPHOBIA("claustrofobia"),
+    NYCTOPHOBIA("nictofobia");
 
     private final String id;
 
