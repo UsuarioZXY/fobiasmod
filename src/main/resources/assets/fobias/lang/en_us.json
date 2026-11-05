@@ -1,0 +1,19 @@
+{
+  "phobia.fobias.aracnofobia": "Arachnophobia",
+  "phobia.fobias.acrofobia": "Acrophobia",
+  "phobia.fobias.claustrofobia": "Claustrophobia",
+
+  "message.fobias.aracnofobia": "Spiders nearby! Your legs are shaking...",
+  "message.fobias.acrofobia": "You are too high up... don't look down.",
+  "message.fobias.claustrofobia": "The walls seem to be closing in on you...",
+
+  "commands.fobias.added": "You now suffer from %s.",
+  "commands.fobias.removed": "You overcame your %s.",
+  "commands.fobias.already": "You already have %s.",
+  "commands.fobias.not_have": "You don't have %s.",
+  "commands.fobias.unknown": "Unknown phobia: %s",
+  "commands.fobias.cleared": "You no longer have any phobia.",
+  "commands.fobias.list.header": "Your phobias: %s",
+  "commands.fobias.list.empty": "You have no phobias. Use /fobia add <phobia>.",
+  "commands.fobias.available": "Available phobias: aracnofobia, acrofobia, claustrofobia"
+}
