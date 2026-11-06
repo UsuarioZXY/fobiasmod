@@ -1,7 +1,8 @@
 package com.fobias.registry;
 
 import com.fobias.FobiasMod;
-import com.fobias.item.DarkOrbItem;
+import com.fobias.item.FlashlightItem;
+import com.fobias.item.PurgatoryOrbItem;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -13,13 +14,13 @@ public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, FobiasMod.MODID);
 
-    /** Orbe que lleva al bosque oscuro. Los orbes de los otros mundos se agregan aqui. */
-    public static final RegistryObject<Item> DARK_ORB = ITEMS.register("dark_orb",
-            () -> new DarkOrbItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+    /** Orbe que lleva al Nivel 0. Los orbes de los otros niveles se agregan aqui. */
+    public static final RegistryObject<Item> PURGATORY_ORB = ITEMS.register("purgatory_orb",
+            () -> new PurgatoryOrbItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
-    /** Linterna: lo unico que tienes dentro del bosque oscuro. */
+    /** Linterna: clic derecho para encender/apagar. */
     public static final RegistryObject<Item> FLASHLIGHT = ITEMS.register("flashlight",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new FlashlightItem(new Item.Properties().stacksTo(1)));
 
     private ModItems() {
     }

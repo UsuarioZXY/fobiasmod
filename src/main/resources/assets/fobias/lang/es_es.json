@@ -1,38 +1,23 @@
 {
-  "phobia.fobias.aracnofobia": "Aracnofobia",
-  "phobia.fobias.claustrofobia": "Claustrofobia",
-  "phobia.fobias.nictofobia": "Nictofobia",
-
-  "message.fobias.aracnofobia": "¡Arañas cerca! Te tiemblan las piernas...",
-  "message.fobias.claustrofobia": "Las paredes parecen cerrarse a tu alrededor...",
-  "message.fobias.nictofobia": "La oscuridad te rodea... sientes que algo te observa.",
-
-  "item.fobias.dark_orb": "Orbe de la Oscuridad",
+  "item.fobias.purgatory_orb": "Orbe del Purgatorio",
   "item.fobias.flashlight": "Linterna",
-  "entity.fobias.stalker": "Acechador",
+  "entity.fobias.stalker": "El Sonriente",
 
-  "message.fobias.world_missing": "El bosque oscuro no está disponible en este mundo.",
-  "message.fobias.already_playing": "Ya estás dentro de una pesadilla.",
-  "message.fobias.not_playing": "No estás dentro de ningún mundo de fobias.",
-  "message.fobias.dark_start": "Busca la luz blanca de la salida. Algo te observa desde las sombras...",
-  "message.fobias.dark_hint": "Mantén la linterna en la mano: apúntala hacia él para frenarlo.",
-  "message.fobias.stalker_hunting": "Ha empezado a moverse...",
-  "message.fobias.aborted": "Has despertado de la pesadilla.",
-  "message.fobias.overcome": "Has superado tu %s.",
-
+  "title.fobias.level0": "Nivel 0",
+  "subtitle.fobias.level0": "El Purgatorio",
   "title.fobias.escaped": "Escapaste",
-  "subtitle.fobias.escaped": "La oscuridad ya no te asusta tanto",
+  "subtitle.fobias.escaped": "Has salido del Purgatorio",
   "title.fobias.caught": "Te atrapó",
   "subtitle.fobias.caught": "Despiertas de golpe...",
 
-  "commands.fobias.added": "Ahora sufres de %s.",
-  "commands.fobias.removed": "Superaste tu %s.",
-  "commands.fobias.already": "Ya tienes %s.",
-  "commands.fobias.not_have": "No tienes %s.",
-  "commands.fobias.unknown": "Fobia desconocida: %s",
-  "commands.fobias.cleared": "Ya no tienes ninguna fobia.",
-  "commands.fobias.orb_given": "Recibiste el Orbe de la Oscuridad.",
-  "commands.fobias.list.header": "Tus fobias: %s",
-  "commands.fobias.list.empty": "No tienes ninguna fobia. Usa /fobia add <fobia>.",
-  "commands.fobias.available": "Fobias disponibles: aracnofobia, claustrofobia, nictofobia"
+  "message.fobias.world_missing": "El Purgatorio no está disponible en este mundo.",
+  "message.fobias.already_playing": "Ya estás dentro de un nivel.",
+  "message.fobias.not_playing": "No estás dentro de ningún nivel.",
+  "message.fobias.start": "Busca la luz blanca de la salida. Algo te sonríe desde las sombras...",
+  "message.fobias.hint": "Clic derecho: apagar/encender la linterna. Apúntala hacia él para frenarlo; apágala para esconderte.",
+  "message.fobias.hunting": "Ha empezado a moverse...",
+  "message.fobias.aborted": "Has salido del nivel.",
+
+  "commands.fobias.orb_given": "Recibiste el Orbe del Purgatorio.",
+  "commands.fobias.flashlight_given": "Recibiste una linterna."
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-/** Eventos del bus del mod (registro de atributos y pestaña creativa). */
+/** Eventos del bus del mod (atributos y pestaña creativa). */
 @Mod.EventBusSubscriber(modid = FobiasMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEvents {
 
@@ -23,7 +23,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.DARK_ORB.get());
+            event.accept(ModItems.PURGATORY_ORB.get());
             event.accept(ModItems.FLASHLIGHT.get());
         }
     }

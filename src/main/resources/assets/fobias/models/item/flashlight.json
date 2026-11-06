@@ -2,5 +2,11 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "fobias:item/flashlight"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": { "fobias:on": 1 },
+      "model": "fobias:item/flashlight_on"
+    }
+  ]
 }

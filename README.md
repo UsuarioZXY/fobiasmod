@@ -1,41 +1,44 @@
 # Fobias (Minecraft 1.20.1 · Forge 47.3.0)
 
-Mod de terror basado en fobias. Cada fobia tendrá su propio mundo al que se entra con un orbe, y del que hay que escapar.
+Mod de terror por niveles, al estilo Backrooms. Cada nivel se abre con un orbe y hay que escapar de él.
 
-## Mundo 1: el bosque oscuro (nictofobia)
+## Nivel 0: El Purgatorio
 
-1. Consigue el **Orbe de la Oscuridad**: `/fobia orbe` (o pestaña creativa "Herramientas y utilidades").
+1. Consigue el **Orbe del Purgatorio**: `/nivel orbe` (o pestaña creativa "Herramientas y utilidades").
 2. Haz **clic derecho** con el orbe.
-3. Tu inventario se guarda y apareces en un **bosque plano de noche** con solo una **linterna**.
-4. Una **luz blanca (baliza)** marca la salida, a 100-140 bloques. Llega hasta ella para escapar.
-5. El **Acechador** te observa unos 25 segundos y luego te persigue. Es invulnerable.
-   - Si **apuntas la linterna hacia él** (con la linterna en la mano), se frena casi por completo.
-   - Si te alcanza, despiertas de golpe de vuelta en tu mundo.
-6. Al ganar o perder recuperas tu inventario y vuelves a donde estabas. Si tenías nictofobia (`/fobia add nictofobia`), al escapar la superas.
+3. Tu inventario se guarda y apareces en un **bosque plano, completamente a oscuras**, en modo aventura, con una sola **linterna**.
+4. Un **haz de luz blanco (baliza)** marca la salida, a 100-140 bloques. Llega hasta ella para escapar.
+5. **El Sonriente** te observa inmóvil unos 25 segundos y luego te persigue. Es invulnerable.
+6. Si te atrapa, despiertas de golpe de vuelta en tu mundo. Ganes o pierdas, recuperas tu inventario.
 
-Notas:
-- Necesita dificultad **Fácil o superior** (en Pacífico el Acechador no ataca).
-- En el bosque oscuro estás en modo aventura y no aparece ningún otro mob.
-- Si algo falla: `/fobia salir` te saca y te devuelve el inventario.
+### La linterna
+- **Clic derecho**: encender / apagar (cambia la textura del objeto).
+- Cuanto **más lejos apuntes**, más fuerte es la luz del punto final y más terreno se ilumina. Un cono de polvo muestra el haz en la oscuridad (alcance 24 bloques).
+- Para tener efecto debe estar **en la mano** (principal o secundaria).
 
-## Fobias pasivas (fuera de los mundos)
+### Cómo escapar del Sonriente
+| Situación | Qué hace él |
+|---|---|
+| Linterna encendida y apuntándole | Se frena casi por completo y se tapa la cara |
+| Linterna encendida | Te ve a hasta 64 bloques |
+| Linterna apagada, caminando | Te oye a menos de 30 bloques |
+| Linterna apagada y **agachado** | Solo te nota a menos de 8 bloques |
 
-| Fobia | Se activa cuando... | Efectos |
-|---|---|---|
-| Aracnofobia | Hay arañas a menos de 8 bloques | Lentitud; debilidad (≤5); náuseas (≤3) |
-| Claustrofobia | Techo a ≤2 bloques y paredes por 3+ lados | Fatiga de minería y oscuridad |
-| Nictofobia | Nivel de luz muy bajo | Debilidad y lentitud |
+Sus latidos se aceleran cuanto más cerca está.
 
-No se aplican en creativo ni espectador.
+### El Sonriente
+Alto (2,7 bloques) y flaco, con brazos largos que casi tocan el suelo, dedos larguísimos y una sonrisa enorme con ojos y dientes que brillan en la oscuridad. Tiene animaciones propias:
+- **Observando**: inmóvil, cabeza ladeada, siempre girando hacia ti, dedos que se mueven y tics nerviosos.
+- **Cazando**: inclinado hacia adelante, zancadas enormes y brazos extendidos con dedos abiertos.
+- **Iluminado**: se cubre la cara, tiembla y retrocede a trompicones.
+- **Ataque**: se lanza hacia adelante con las manos abiertas.
 
 ## Comandos
-
-- `/fobia list`, `/fobia add <fobia>`, `/fobia remove <fobia>`, `/fobia clear`
-- `/fobia orbe` — recibir el orbe de la oscuridad
-- `/fobia salir` — abandonar el mundo en el que estás
+- `/nivel orbe` — recibir el orbe
+- `/nivel linterna` — recibir una linterna
+- `/nivel salir` — abandonar el nivel si algo sale mal (devuelve tu inventario)
 
 ## Compilar el .jar con GitHub
-
 1. Sube el contenido de esta carpeta a tu repositorio (incluida `.github/workflows`).
 2. En **Actions**, el workflow "Compilar mod" corre solo con cada push.
 3. Descarga el artefacto **fobias-jar** (contiene `fobias-0.1.0.jar`).
@@ -43,10 +46,10 @@ No se aplican en creativo ni espectador.
 Instálalo en `mods` con Minecraft 1.20.1 y Forge 47.3.0 o superior.
 
 ## Ajustes rápidos
-
-- Velocidad y tiempo de espera del Acechador: constantes al inicio de `StalkerEntity.java`.
-- Distancia de la salida, tamaño y alcance: constantes en `DarkForestGame.java`.
-- Intensidad y alcance de la linterna: constantes en `FlashlightHandler.java`.
-- La dimensión (aspecto del terreno) está en `data/fobias/dimension/dark_forest.json`.
+- Velocidad, tiempo de espera y detección del Sonriente: constantes en `StalkerEntity.java`.
+- Distancia de la salida: constantes en `PurgatoryGame.java`.
+- Alcance e intensidad de la linterna: `FlashlightHandler.java`.
+- Modelo y animaciones: `StalkerModel.java`. Textura: `assets/fobias/textures/entity/`.
+- Aspecto del nivel: `data/fobias/dimension/purgatory.json` y `dimension_type/purgatory.json`.
 
 Antes de publicar, cambia `mod_authors` en `gradle.properties`.

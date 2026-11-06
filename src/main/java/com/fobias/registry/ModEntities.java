@@ -14,9 +14,10 @@ public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, FobiasMod.MODID);
 
+    /** El Sonriente: alto y flaco (2,7 bloques). */
     public static final RegistryObject<EntityType<StalkerEntity>> STALKER = ENTITY_TYPES.register("stalker",
             () -> EntityType.Builder.<StalkerEntity>of(StalkerEntity::new, MobCategory.MONSTER)
-                    .sized(0.6F, 2.25F)
+                    .sized(0.6F, 2.7F)
                     .clientTrackingRange(10)
                     .fireImmune()
                     .build(new ResourceLocation(FobiasMod.MODID, "stalker").toString()));
